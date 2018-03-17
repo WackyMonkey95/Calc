@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements View.OnClickListener{
 
     TextView resultView;
 
@@ -27,50 +27,47 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button one_btn = (Button)findViewById(R.id.one_btn);
-        Button two_btn = (Button)findViewById(R.id.two_btn);
-        Button three_btn = (Button)findViewById(R.id.three_btn);
-        Button four_btn = (Button)findViewById(R.id.four_btn);
-        Button five_btn = (Button)findViewById(R.id.five_btn);
-        Button six_btn = (Button)findViewById(R.id.six_btn);
-        Button seven_btn = (Button)findViewById(R.id.seven_btn);
-        Button eight_btn = (Button)findViewById(R.id.eight_btn);
-        Button nine_btn = (Button)findViewById(R.id.nine_btn);
-        Button zero_btn = (Button)findViewById(R.id.zero_btn);
 
-        ImageButton equal_btn = (ImageButton)findViewById(R.id.equal_btn);
-        ImageButton divide_btn = (ImageButton)findViewById(R.id.divide_btn);
-        ImageButton substract_btn = (ImageButton)findViewById(R.id.subtract_btn);
-        ImageButton multiply_btn = (ImageButton)findViewById(R.id.multiply_btn);
-        ImageButton add_btn = (ImageButton)findViewById(R.id.add_btn);
 
-        Button clear_btn = (Button)findViewById(R.id.clear_btn);
+        // (Button)findViewById(R.id.one_btn)
+        // (Button) <-- niet meer nodig in Android Studio 3+
 
-        resultView = (TextView)findViewById(R.id.resultView);
+        Button one_btn = findViewById(R.id.one_btn);
+        Button two_btn = findViewById(R.id.two_btn);
+
+        // andere manier, maar niet perse beter
+        findViewById(R.id.three_btn).setOnClickListener(this);
+
+        Button four_btn = findViewById(R.id.four_btn);
+        Button five_btn = findViewById(R.id.five_btn);
+        Button six_btn = findViewById(R.id.six_btn);
+        Button seven_btn = findViewById(R.id.seven_btn);
+        Button eight_btn = findViewById(R.id.eight_btn);
+        Button nine_btn = findViewById(R.id.nine_btn);
+        Button zero_btn = findViewById(R.id.zero_btn);
+
+        ImageButton equal_btn = findViewById(R.id.equal_btn);
+        ImageButton divide_btn = findViewById(R.id.divide_btn);
+        ImageButton substract_btn = findViewById(R.id.subtract_btn);
+        ImageButton multiply_btn = findViewById(R.id.multiply_btn);
+        ImageButton add_btn = findViewById(R.id.add_btn);
+
+        Button clear_btn = findViewById(R.id.clear_btn);
+
+        resultView = findViewById(R.id.resultView);
 
 
         resultView.setText("");
 
-        one_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                numberPressed(1);
-            }
-        });
+        one_btn.setOnClickListener(this);
+        two_btn.setOnClickListener(this);
 
-        two_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                numberPressed(2);
-            }
-        });
-
-        three_btn.setOnClickListener(new View.OnClickListener() {
+        /*three_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 numberPressed(3);
             }
-        });
+        });*/
 
         four_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -171,6 +168,25 @@ public class MainActivity extends Activity {
 
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.one_btn:
+                numberPressed(1);
+                break;
+            case R.id.two_btn:
+                numberPressed(2);
+                break;
+            case R.id.three_btn:
+                numberPressed(3);
+                break;
+            // implement de overige buttons hier //
+            default:
+                break;
+        }
+    }
+
+
     void processOperation(Operation operation){
         if (currentOperation != null){
 
@@ -214,4 +230,3 @@ public class MainActivity extends Activity {
 
     }
 }
-//first commit
