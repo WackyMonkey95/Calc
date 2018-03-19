@@ -3,6 +3,7 @@ package com.example.maike.calc;
 import android.app.Activity;
 import android.media.VolumeShaper;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -29,28 +30,23 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
 
 
-        // (Button)findViewById(R.id.one_btn)
-        // (Button) <-- niet meer nodig in Android Studio 3+
-
-        Button one_btn = findViewById(R.id.one_btn);
-        Button two_btn = findViewById(R.id.two_btn);
-
-        // andere manier, maar niet perse beter
+        findViewById(R.id.one_btn).setOnClickListener(this);
+        findViewById(R.id.two_btn).setOnClickListener(this);
         findViewById(R.id.three_btn).setOnClickListener(this);
+        findViewById(R.id.four_btn).setOnClickListener(this);
+        findViewById(R.id.five_btn).setOnClickListener(this);
+        findViewById(R.id.six_btn).setOnClickListener(this);
+        findViewById(R.id.seven_btn).setOnClickListener(this);
+        findViewById(R.id.eight_btn).setOnClickListener(this);
+        findViewById(R.id.nine_btn).setOnClickListener(this);
+        findViewById(R.id.zero_btn).setOnClickListener(this);
 
-        Button four_btn = findViewById(R.id.four_btn);
-        Button five_btn = findViewById(R.id.five_btn);
-        Button six_btn = findViewById(R.id.six_btn);
-        Button seven_btn = findViewById(R.id.seven_btn);
-        Button eight_btn = findViewById(R.id.eight_btn);
-        Button nine_btn = findViewById(R.id.nine_btn);
-        Button zero_btn = findViewById(R.id.zero_btn);
-
-        ImageButton equal_btn = findViewById(R.id.equal_btn);
-        ImageButton divide_btn = findViewById(R.id.divide_btn);
-        ImageButton substract_btn = findViewById(R.id.subtract_btn);
-        ImageButton multiply_btn = findViewById(R.id.multiply_btn);
         ImageButton add_btn = findViewById(R.id.add_btn);
+        ImageButton divide_btn = findViewById(R.id.divide_btn);
+        ImageButton multiply_btn = findViewById(R.id.multiply_btn);
+        ImageButton substract_btn = findViewById(R.id.subtract_btn);
+        ImageButton equal_btn = findViewById(R.id.equal_btn);
+
 
         Button clear_btn = findViewById(R.id.clear_btn);
 
@@ -59,64 +55,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
         resultView.setText("");
 
-        one_btn.setOnClickListener(this);
-        two_btn.setOnClickListener(this);
 
-        /*three_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                numberPressed(3);
-            }
-        });*/
-
-        four_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                numberPressed(4);
-            }
-        });
-
-        five_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                numberPressed(5);
-            }
-        });
-
-        six_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                numberPressed(6);
-            }
-        });
-
-        seven_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                numberPressed(7);
-            }
-        });
-
-        eight_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                numberPressed(8);
-            }
-        });
-
-        nine_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                numberPressed(9);
-            }
-        });
-
-        zero_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                numberPressed(0);
-            }
-        });
 
         add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,6 +118,27 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 break;
             case R.id.three_btn:
                 numberPressed(3);
+                break;
+            case R.id.four_btn:
+                numberPressed(4);
+                break;
+            case R.id.five_btn:
+                numberPressed(5);
+                break;
+            case R.id.six_btn:
+                numberPressed(6);
+                break;
+            case R.id.seven_btn:
+                numberPressed(7);
+                break;
+            case R.id.eight_btn:
+                numberPressed(8);
+                break;
+            case R.id.nine_btn:
+                numberPressed(9);
+                break;
+            case R.id.zero_btn:
+                numberPressed(0);
                 break;
             // implement de overige buttons hier //
             default:
