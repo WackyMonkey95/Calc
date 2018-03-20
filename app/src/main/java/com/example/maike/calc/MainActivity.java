@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
@@ -21,7 +22,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     String leftValueStr = "";
     String rightValueStr = "";
     Operation currentOperation;
-    int result = 0;
+    double result = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,20 +123,24 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                 switch (currentOperation) {
                     case ADD:
-                        result = Integer.parseInt(leftValueStr) + Integer.parseInt(rightValueStr);
+                        result = Double.parseDouble(leftValueStr) + Double.parseDouble(rightValueStr);
                         break;
                     case SUBTRACT:
-                        result = Integer.parseInt(leftValueStr) - Integer.parseInt(rightValueStr);
+                        result = Double.parseDouble(leftValueStr) - Double.parseDouble(rightValueStr);
                         break;
                     case DIVIDE:
-                        result = Integer.parseInt(leftValueStr) / Integer.parseInt(rightValueStr);
+                        try {
+                            result = Double.parseDouble(leftValueStr) / Double.parseDouble(rightValueStr);
+                        } catch (Exception ex) {
+                            result = 0;
+                        }
                         break;
                     case MULTIPLY:
-                        result = Integer.parseInt(leftValueStr) * Integer.parseInt(rightValueStr);
+                        result = Double.parseDouble(leftValueStr) * Double.parseDouble(rightValueStr);
                         break;
                 }
 
-                leftValueStr = String.valueOf(result);
+                leftValueStr = String.format("%.2f", result);
                 resultView.setText(leftValueStr);
             }
 
@@ -149,7 +154,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
 
-    void numberPressed(int number) {
+    void numberPressed(double number) {
         runningNumber += String.valueOf(number);
         resultView.setText(runningNumber);
     }

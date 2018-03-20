@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,228 +7,280 @@
     android:background="@android:color/holo_blue_bright"
     tools:context="com.example.maike.calc.MainActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="152dp">
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_20_percent"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:background="@android:color/background_light"
-            android:orientation="horizontal"
-            android:weightSum="4">
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_40_percent"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
 
-            <Button
-                android:id="@+id/seven_btn"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:autoText="false"
-                android:background="@android:color/background_light"
-                android:text="7"
-                android:textColor="@android:color/background_dark"
-                android:textSize="35sp" />
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_60_percent"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
 
-            <Button
-                android:id="@+id/eight_btn"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:autoText="false"
-                android:background="@android:color/background_light"
-                android:text="8"
-                android:textColor="@android:color/background_dark"
-                android:textSize="35sp" />
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_80_percent"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
 
-            <Button
-                android:id="@+id/nine_btn"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:autoText="false"
-                android:background="@android:color/background_light"
-                android:text="9"
-                android:textColor="@android:color/background_dark"
-                android:textSize="35sp" />
+    <TextView
+        android:id="@+id/resultView"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="0"
+        android:textSize="45sp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@id/guideline_20_percent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageButton
-                android:id="@+id/divide_btn"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@android:color/background_light"
-                android:src="@drawable/divide" />
 
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:layout_marginTop="90dp"
-            android:background="@android:color/background_light"
-            android:orientation="horizontal">
+    <Button
+        android:id="@+id/seven_btn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/background_light"
+        android:text="7"
+        android:textColor="@android:color/background_dark"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@id/guideline_40_percent"
+        app:layout_constraintEnd_toStartOf="@+id/eight_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_20_percent" />
 
-            <Button
-                android:id="@+id/four_btn"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:autoText="false"
-                android:background="@android:color/background_light"
-                android:text="4"
-                android:textColor="@android:color/background_dark"
-                android:textSize="35sp" />
+    <Button
+        android:id="@+id/eight_btn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/background_light"
+        android:text="8"
+        android:textColor="@android:color/background_dark"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="@id/seven_btn"
+        app:layout_constraintEnd_toStartOf="@+id/nine_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/seven_btn"
+        app:layout_constraintTop_toTopOf="@+id/seven_btn" />
 
-            <Button
-                android:id="@+id/five_btn"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:autoText="false"
-                android:background="@android:color/background_light"
-                android:text="5"
-                android:textColor="@android:color/background_dark"
-                android:textSize="35sp" />
+    <Button
+        android:id="@+id/nine_btn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/background_light"
+        android:text="9"
+        android:textColor="@android:color/background_dark"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="@id/seven_btn"
+        app:layout_constraintEnd_toStartOf="@+id/divide_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/eight_btn"
+        app:layout_constraintTop_toTopOf="@+id/seven_btn" />
 
-            <Button
-                android:id="@+id/six_btn"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:autoText="false"
-                android:background="@android:color/background_light"
-                android:text="6"
-                android:textColor="@android:color/background_dark"
-                android:textSize="35sp" />
+    <ImageButton
+        android:id="@+id/divide_btn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/background_light"
+        android:src="@drawable/divide"
+        app:layout_constraintBottom_toBottomOf="@id/seven_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/nine_btn"
+        app:layout_constraintTop_toTopOf="@+id/seven_btn" />
 
-            <ImageButton
-                android:id="@+id/multiply_btn"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@android:color/background_light"
-                android:src="@drawable/multiply" />
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:layout_marginTop="180dp"
-            android:background="@android:color/background_light"
-            android:orientation="horizontal">
+    <Button
+        android:id="@+id/four_btn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/background_light"
+        android:text="4"
+        android:textColor="@android:color/background_dark"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_60_percent"
+        app:layout_constraintEnd_toStartOf="@+id/five_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_40_percent" />
 
-            <Button
-                android:id="@+id/one_btn"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:autoText="false"
-                android:background="@android:color/background_light"
-                android:text="1"
-                android:textColor="@android:color/background_dark"
-                android:textSize="35sp" />
+    <Button
+        android:id="@+id/five_btn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/background_light"
+        android:text="5"
+        android:textColor="@android:color/background_dark"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="@+id/four_btn"
+        app:layout_constraintEnd_toStartOf="@+id/six_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/four_btn"
+        app:layout_constraintTop_toTopOf="@+id/four_btn" />
 
-            <Button
-                android:id="@+id/two_btn"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:autoText="false"
-                android:background="@android:color/background_light"
-                android:text="2"
-                android:textColor="@android:color/background_dark"
-                android:textSize="35sp" />
+    <Button
+        android:id="@+id/six_btn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/background_light"
+        android:text="6"
+        android:textColor="@android:color/background_dark"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="@+id/five_btn"
+        app:layout_constraintEnd_toStartOf="@+id/multiply_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/five_btn"
+        app:layout_constraintTop_toTopOf="@+id/five_btn" />
 
-            <Button
-                android:id="@+id/three_btn"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:autoText="false"
-                android:background="@android:color/background_light"
-                android:text="3"
-                android:textColor="@android:color/background_dark"
-                android:textSize="35sp" />
+    <ImageButton
+        android:id="@+id/multiply_btn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/background_light"
+        android:src="@drawable/multiply"
+        app:layout_constraintBottom_toBottomOf="@+id/six_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/six_btn"
+        app:layout_constraintTop_toTopOf="@+id/six_btn" />
 
-            <ImageButton
-                android:id="@+id/subtract_btn"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@android:color/background_light"
-                android:src="@drawable/subtract" />
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:layout_marginTop="270dp"
-            android:background="@android:color/background_light"
-            android:orientation="horizontal"
-            android:weightSum="4">
+    <Button
+        android:id="@+id/one_btn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/background_light"
+        android:text="1"
+        android:textColor="@android:color/background_dark"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_80_percent"
+        app:layout_constraintEnd_toStartOf="@+id/two_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_60_percent" />
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:gravity="center"
-                android:orientation="vertical">
+    <Button
+        android:id="@+id/two_btn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/background_light"
+        android:text="2"
+        android:textColor="@android:color/background_dark"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="@+id/one_btn"
+        app:layout_constraintEnd_toStartOf="@+id/three_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/one_btn"
+        app:layout_constraintTop_toTopOf="@+id/one_btn" />
 
-                <Button
-                    android:id="@+id/clear_btn"
-                    android:layout_width="160dp"
-                    android:layout_height="wrap_content"
-                    android:background="@color/colorPrimary"
-                    android:text="Clear"
-                    android:textSize="20sp" />
-            </LinearLayout>
+    <Button
+        android:id="@+id/three_btn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/background_light"
+        android:text="3"
+        android:textColor="@android:color/background_dark"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="@+id/two_btn"
+        app:layout_constraintEnd_toStartOf="@+id/subtract_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/two_btn"
+        app:layout_constraintTop_toTopOf="@+id/two_btn" />
 
-            <Button
-                android:id="@+id/zero_btn"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="0dp"
-                android:layout_weight="1"
-                android:background="@android:color/background_light"
-                android:paddingBottom="15dp"
-                android:text="0"
-                android:textColor="@android:color/background_dark"
-                android:textSize="35sp" />
+    <ImageButton
+        android:id="@+id/subtract_btn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/background_light"
+        android:src="@drawable/subtract"
+        app:layout_constraintBottom_toBottomOf="@+id/three_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/three_btn"
+        app:layout_constraintTop_toTopOf="@+id/three_btn" />
 
-            <ImageButton
-                android:id="@+id/add_btn"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="0dp"
-                android:layout_weight="1"
-                android:background="@android:color/background_light"
-                android:paddingBottom="15dp"
-                android:src="@drawable/add" />
-        </LinearLayout>
 
-    </RelativeLayout>
+
+
+
+    <Button
+        android:id="@+id/zero_btn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/background_light"
+        android:paddingBottom="15dp"
+        android:text="0"
+        android:textColor="@android:color/background_dark"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/add_btn"
+        app:layout_constraintStart_toStartOf="@+id/three_btn"
+        app:layout_constraintTop_toTopOf="@+id/add_btn" />
+
+    <ImageButton
+        android:id="@+id/add_btn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/background_light"
+        android:paddingBottom="15dp"
+        android:src="@drawable/add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/subtract_btn"
+        app:layout_constraintTop_toBottomOf="@+id/subtract_btn" />
+
+    <Button
+        android:id="@+id/clear_btn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimary"
+        android:text="Clear"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline_80_percent"
+        app:layout_constraintEnd_toStartOf="@+id/zero_btn"/>
+
+    <!-- Your white background before the clear button
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#fff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline_80_percent"
+        app:layout_constraintEnd_toStartOf="@+id/zero_btn"/>
+-->
 
     <ImageButton
         android:id="@+id/equal_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="35dp"
-        android:layout_marginTop="100dp"
         android:background="@android:color/transparent"
         android:cropToPadding="false"
-        android:src="@drawable/equal" />
+        android:src="@drawable/equal"
+        android:elevation="2dp"
+        app:layout_constraintBottom_toTopOf="@id/guideline_20_percent"
+        app:layout_constraintEnd_toEndOf="@+id/divide_btn"
+        app:layout_constraintStart_toStartOf="@+id/nine_btn"
+        app:layout_constraintTop_toTopOf="@+id/guideline_20_percent" />
 
-    <TextView
-        android:id="@+id/resultView"
-        android:layout_width="370dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="41dp"
-        android:gravity="right"
-        android:text="567"
-        android:textSize="45sp" />
-</RelativeLayout>
+
+
+</android.support.constraint.ConstraintLayout>
